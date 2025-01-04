@@ -458,3 +458,98 @@ body.light-mode #contato a {
     border: 2px solid #ddd; /* Borda clara */
     color: #333; /* Texto preto */
 }
+
+/* Para telas menores que 768px (celulares) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Diminui o tamanho da fonte */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Alinha os itens de navegação verticalmente */
+        gap: 10px; /* Espaço entre os itens */
+    }
+
+    .service {
+        padding: 10px;
+    }
+
+    .service form {
+        flex-direction: column; /* Os inputs e botões ficam empilhados */
+    }
+
+    .service input,
+    .service button {
+        width: 100%; /* Faz os inputs e botões ocuparem toda a largura */
+    }
+
+    .bitcoin-section {
+        flex-direction: column; /* Imagem e texto empilhados */
+        text-align: center;
+    }
+
+    .bitcoin-image {
+        margin: 0 auto 20px; /* Centraliza a imagem no topo */
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* Esconde o menu por padrão */
+    }
+
+    header nav.active ul {
+        display: flex;
+        flex-direction: column;
+        background: #222;
+        padding: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu hambúrguer */
+        cursor: pointer;
+        font-size: 20px;
+    }
+}
+
+img {
+    max-width: 100%; /* Nunca ultrapassa o tamanho do contêiner */
+    height: auto; /* Mantém a proporção */
+}
+
+.bitcoin-image {
+    max-width: 150px; /* Reduz o tamanho em telas menores */
+}
+
+@media (max-width: 768px) {
+    .bitcoin-image {
+        max-width: 100px;
+    }
+}
+
+.service form {
+    display: flex;
+    flex-direction: column; /* Empilha os inputs e botões */
+    gap: 15px; /* Espaço entre os elementos */
+}
+
+.service input,
+.service button {
+    width: 100%; /* Preenche toda a largura */
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px;
+    }
+}

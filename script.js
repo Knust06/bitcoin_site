@@ -102,3 +102,7 @@ document.getElementById("predictForm").addEventListener("submit", async (e) => {
         document.getElementById("predictionResult").textContent = error.message;
     }
 });
+
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+    document.querySelector("header nav").classList.toggle("active");
+});
