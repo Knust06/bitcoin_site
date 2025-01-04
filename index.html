@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Price Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#explicacao">Explicação</a></li>
+                <li><a href="#sobre">Sobre o Criador</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="explicacao">
+            <h1>Bitcoin Price Viewer</h1>
+            <p>Este site permite que você visualize preços históricos de Bitcoin, preveja preços futuros usando um modelo avançado, e explore análises detalhadas.</p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre o Criador</h2>
+            <p>Este projeto foi desenvolvido por [Seu Nome], um entusiasta de tecnologia e finanças com interesse em inteligência artificial.</p>
+        </section>
+
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <div>
+                <h3>Previsão de Preços</h3>
+                <form id="predictForm">
+                    <label for="prices">Digite os Preços (separados por vírgulas):</label>
+                    <input type="text" id="prices" placeholder="e.g., 50000,51000,52000,53000" required>
+                    <button type="submit">Prever</button>
+                </form>
+                <p id="predictionResult"></p>
+            </div>
+
+            <div>
+                <h3>Preços Históricos</h3>
+                <form id="historyForm">
+                    <label for="symbol">Símbolo do Ativo:</label>
+                    <input type="text" id="symbol" placeholder="BTC-USD" required>
+                    <label for="startDate">Data Inicial:</label>
+                    <input type="date" id="startDate" required>
+                    <label for="endDate">Data Final:</label>
+                    <input type="date" id="endDate" required>
+                    <button type="submit">Buscar Preços</button>
+                </form>
+                <table id="pricesTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato pelo email: <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
