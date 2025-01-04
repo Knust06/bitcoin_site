@@ -446,3 +446,15 @@ footer {
     text-decoration: underline; /* Adiciona sublinhado no hover */
     color: #ffcd4d; /* Cor mais clara ao passar o mouse */
 }
+
+/* Labels e inputs no modo claro */
+body.light-mode #contato p,
+body.light-mode #contato h2 {
+    color: #333; /* Texto preto */
+}
+
+body.light-mode #contato a {
+    background-color: #f9f9f9; /* Fundo claro */
+    border: 2px solid #ddd; /* Borda clara */
+    color: #333; /* Texto preto */
+}
