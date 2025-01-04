@@ -5,79 +5,444 @@
     box-sizing: border-box;
 }
 
+/* Aplicando a fonte Aptos */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto Mono', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
     background-color: #121212;
     color: #ffffff;
-    line-height: 1.6;
-}
-
-header {
-    background: #1f1f1f;
-    padding: 10px 20px;
     text-align: center;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
+
+
+/* Header fixado sempre escuro */
+header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky; /* Permanece fixo no topo ao rolar */
+    top: 0;
+    z-index: 1000; /* Fica acima dos outros elementos */
+}
+
+/* Ajustando o comportamento do header no modo claro */
+header.light-mode {
+    background-color: #222; /* Sempre escuro */
+    color: #fff;
+}
+
+/* Navegação no header */
+header nav {
+    display: inline-block;
+}
+
+nav ul {
     list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-.menu li {
-    margin: 0 15px;
+nav ul li {
+    margin: 0;
 }
 
-.menu a {
-    color: #ffffff;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
     font-size: 1.2em;
-    transition: color 0.3s;
 }
 
-.menu a:hover {
-    color: #ffd700;
-}
-
-main {
-    padding: 20px;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-h1, h2, h3 {
-    color: #ffd700;
-    margin-bottom: 10px;
-}
-
-form {
-    margin: 20px 0;
-}
-
-form input, form button {
-    padding: 10px;
+/* Botão de alternância de tema */
+header button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ffd966;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
     font-size: 16px;
-    margin: 5px 0;
-    width: 100%;
+    color: #000;
+    border-radius: 5px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+/* Bitcoin Section */
+.bitcoin-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 900px;
 }
 
-table, th, td {
-    border: 1px solid #444;
+.bitcoin-image {
+    max-width: 150px;
+    margin-right: 20px;
 }
 
-th, td {
-    padding: 10px;
+.bitcoin-text {
     text-align: left;
 }
 
-th {
+.sobre-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+/* Serviços */
+.service {
+    margin: 40px auto; /* Espaçamento entre os serviços */
+    text-align: center; /* Centraliza os textos */
+    padding: 20px;
+    max-width: 800px; /* Define uma largura máxima para os serviços */
+    border: 1px solid #444; /* Opcional: borda para destacar */
+    border-radius: 10px;
+    background-color: #1e1e1e; /* Fundo sutil para destaque */
+}
+
+.service h3 {
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.service form {
+    display: flex;
+    flex-direction: column; /* Itens empilhados verticalmente */
+    gap: 15px; /* Espaçamento entre os elementos */
+    align-items: center; /* Centraliza os elementos no eixo horizontal */
+}
+
+.service label {
+    width: 100%; /* Faz o label ocupar toda a largura */
+    font-size: 14px;
+    color: #bbb;
+}
+
+.service input {
+    width: 25%; /* Faz o input ocupar toda a largura */
+    max-width: 500px; /* Limita a largura do input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.service table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.service table th, .service table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+button {
+    font-family: 'Roboto Mono', monospace; /* Define a fonte Roboto Mono */
+    padding: 10px 20px;
+    background: #ffd966;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    width: auto; /* Ajusta a largura automaticamente */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+
+.service button:hover {
+    background: #ffcd4d;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .service form {
+        flex-direction: column; /* Mantém os itens empilhados em telas pequenas */
+    }
+
+    .service input,
+    .service button {
+        width: 100%; /* Faz os inputs e botões ocuparem toda a largura */
+    }
+}
+
+/* Estilo para placeholders */
+input::placeholder,
+textarea::placeholder {
+    font-family: 'Roboto Mono', monospace; /* Define a fonte Roboto Mono */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+    color: #bbb; /* Define a cor do texto do placeholder */
+    font-style: italic; /* Opcional: deixa o placeholder em itálico */
+}
+
+footer.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+footer.dark-mode {
     background-color: #222;
+    color: #ffffff;
+}
+
+section {
+    scroll-margin-top: 140px; /* Ajuste o valor conforme a altura do header */
+}
+
+
+/* Tema escuro (padrão) */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Tema claro */
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estilo para o modo claro */
+body.light-mode .service {
+    border: 1px solid #ddd; /* Borda clara */
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #333; /* Texto escuro no modo claro */
+}
+
+/* Ajuste dos campos de formulário no modo claro */
+body.light-mode input,
+body.light-mode button {
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Texto escuro */
+    border: 1px solid #ccc; /* Borda clara */
+}
+
+/* Botão no modo claro */
+body.light-mode button {
+    background-color: #ffd966;
+    color: #000; /* Texto preto */
+}
+
+body.light-mode button:hover {
+    background-color: #ffcd4d;
+}
+
+/* Para o título e texto dentro da seção */
+body.light-mode .service h3 {
+    color: #000; /* Título preto no modo claro */
+}
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+button#themeToggle {
+    background-color: #ffd966;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    border-radius: 5px;
+}
+
+button#themeToggle:hover {
+    background-color: #ffcd4d;
+}
+
+#pricesSection {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#pricesLine {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+    resize: none;
+}
+
+#copyPrices {
+    background: #ffd966;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#copyPrices:hover {
+    background: #ffcd4d;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#pricesLine {
+    width: 90%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-family: "Roboto Mono", monospace;
+    resize: none;
+    text-align: center;
+    background-color: #1e1e1e; /* Fundo escuro inicial */
+    color: #fff; /* Texto branco inicial */
+    border: 1px solid #444; /* Borda escura inicial */
+}
+
+/* Labels e inputs no modo escuro */
+#historyForm label,
+#historyForm input {
+    color: #fff; /* Texto branco */
+}
+
+#historyForm input {
+    background-color: #1e1e1e; /* Fundo escuro */
+    border: 1px solid #444; /* Borda escura */
+    color: #fff; /* Texto branco */
+}
+
+/* Labels e inputs no modo claro */
+body.light-mode #historyForm label,
+body.light-mode #historyForm input {
+    color: #333; /* Texto preto */
+}
+
+body.light-mode #historyForm input {
+    background-color: #f9f9f9; /* Fundo claro */
+    border: 1px solid #ddd; /* Borda clara */
+    color: #333; /* Texto preto */
+}
+
+/* Estilo geral dos inputs */
+#historyForm input {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+/* Placeholder no modo escuro */
+#historyForm input::placeholder {
+    color: #aaa; /* Cor do placeholder no modo escuro */
+    opacity: 1; /* Garante que a opacidade seja consistente */
+}
+
+/* Placeholder no modo claro */
+body.light-mode #historyForm input::placeholder {
+    color: #666; /* Cor do placeholder no modo claro */
+    opacity: 1;
+}
+
+/* Labels e inputs no modo escuro */
+#predictForm label,
+#predictForm input {
+    color: #fff; /* Texto branco */
+}
+
+#predictForm input {
+    background-color: #1e1e1e; /* Fundo escuro */
+    border: 1px solid #444; /* Borda escura */
+    color: #fff; /* Texto branco */
+}
+
+/* Labels e inputs no modo claro */
+body.light-mode #predictForm label,
+body.light-mode #predictForm input {
+    color: #333; /* Texto preto */
+}
+
+body.light-mode #predictForm input {
+    background-color: #f9f9f9; /* Fundo claro */
+    border: 1px solid #ddd; /* Borda clara */
+    color: #333; /* Texto preto */
+}
+
+/* Estilo geral dos inputs */
+#predictForm input {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+/* Placeholder no modo escuro */
+#predictForm input::placeholder {
+    color: #aaa; /* Cor do placeholder no modo escuro */
+    opacity: 1; /* Garante que a opacidade seja consistente */
+}
+
+/* Placeholder no modo claro */
+body.light-mode #predictForm input::placeholder {
+    color: #666; /* Cor do placeholder no modo claro */
+    opacity: 1;
+}
+
+/* Espaçamento adicional no rodapé */
+footer {
+    margin-top: 50px; /* Aumenta a distância entre o último conteúdo e o rodapé */
+    padding-top: 20px; /* Opcional: adiciona espaçamento interno */
+    text-align: center;
+    color: #fff;
+    background-color: #222; /* Fundo escuro para o rodapé */
+}
+
+/* Ajustando o título "Contato" */
+#contato h2 {
+    margin-bottom: 20px; /* Espaçamento menor para manter a seção compacta */
+    font-size: 2em; /* Tamanho maior para destaque */
+    text-align: center; /* Centraliza o título */
+}
+
+/* Ajustando o parágrafo */
+#contato p {
+    margin: 10px auto; /* Espaçamento superior e inferior */
+    max-width: 800px; /* Limita a largura para melhor leitura */
+    text-align: center; /* Centraliza o texto */
+    line-height: 1.6; /* Melhora o espaçamento entre linhas */
+    font-size: 1.1em; /* Aumenta levemente o tamanho do texto */
+    color: #ccc; /* Cor sutil para contraste no modo escuro */
+}
+
+/* Link do e-mail */
+#contato a {
+    color: #ffd966; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold; /* Dá destaque ao e-mail */
+}
+
+#contato a:hover {
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+    color: #ffcd4d; /* Cor mais clara ao passar o mouse */
 }

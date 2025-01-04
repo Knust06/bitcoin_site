@@ -3,72 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Price Viewer</title>
+    <title>Bitcoin Price Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
     <header>
+        <h1>Bitcoin Price Viewer</h1>
         <nav>
-            <ul class="menu">
-                <li><a href="#explicacao">Explicação</a></li>
+            <ul>
+                <li><a href="#explicacao">O que é Bitcoin?</a></li>
                 <li><a href="#sobre">Sobre o Criador</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+        <button id="themeToggle">Modo Claro</button>
     </header>
 
     <main>
         <section id="explicacao">
-            <h1>Bitcoin Price Viewer</h1>
-            <p>Este site permite que você visualize preços históricos de Bitcoin, preveja preços futuros usando um modelo avançado, e explore análises detalhadas.</p>
+            <h2>O que é Bitcoin?</h2>
+            <div class="bitcoin-section">
+                <img src="bitcoin20.png" alt="Bitcoin" class="bitcoin-image">
+                <div class="bitcoin-text">
+                    <p><strong>O que é Bitcoin?</strong><br>
+                    Bitcoin é uma moeda digital descentralizada, criada em 2009 por um indivíduo ou grupo sob o pseudônimo de Satoshi Nakamoto. Ele permite transações ponto-a-ponto sem a necessidade de intermediários, como bancos ou governos.</p>
+                    <p><strong>Por que o Bitcoin é importante?</strong><br>
+                    O Bitcoin é importante porque promove a liberdade financeira, reduz taxas de transação e oferece uma alternativa segura em sistemas econômicos onde a confiança é um problema. Sua rede é pública, transparente e resistente à censura, o que a torna uma revolução no mundo das finanças.</p>
+                </div>
+            </div>
         </section>
 
         <section id="sobre">
             <h2>Sobre o Criador</h2>
-            <p>Este projeto foi desenvolvido por [Seu Nome], um entusiasta de tecnologia e finanças com interesse em inteligência artificial.</p>
+            <div class="sobre-section">
+                <p>Meu nome é Lucas Knust, sou entusiasta de tecnologia e formado em Ciência da Computação. Atualmente, estou concluindo uma pós-graduação em Machine Learning Engineering, com foco em explorar o potencial da inteligência artificial para resolver problemas do mundo real.
+
+                    Atuo como Analista de Sistemas C#, desenvolvendo soluções para o mercado financeiro, onde ganho experiência prática com tecnologias avançadas e requisitos críticos de negócios.
+                    
+                    Este projeto é fruto da minha paixão por tecnologia e aprendizado constante. A API que alimenta este site foi desenvolvida como parte da minha especialização em Machine Learning e tem como objetivo prever o valor do Bitcoin para o dia seguinte, utilizando técnicas modernas de aprendizado de máquina.
+                    
+                    Além do trabalho e dos estudos, sou entusiasta de jogos, mercado financeiro e, principalmente, de tecnologia, acreditando sempre no impacto positivo que ela pode trazer para a sociedade.</p>
+            </div>            
         </section>
 
         <section id="servicos">
-            <h2>Serviços</h2>
-            <div>
+            <h2>Serviços</h2>        
+            <div class="service">
+                <h3>Preços Históricos</h3>
+                
+                <form id="historyForm">
+                    <label for="symbol">Símbolo do Ativo:</label>
+                    <input type="text" id="symbol" placeholder="Bitcoin: BTC_USD" required>
+                    
+                    <label for="startDate">Data Inicial (opcional):</label>
+                    <input type="text" id="startDate" placeholder="yyyy-mm-dd" pattern="\d{4}-\d{2}-\d{2}" placeholder="Formato: yyyy-mm-dd">
+                    
+                    <label for="endDate">Data Final (opcional):</label>
+                    <input type="text" id="endDate" placeholder="yyyy-mm-dd" pattern="\d{4}-\d{2}-\d{2}" placeholder="Formato: yyyy-mm-dd">
+                    
+                    <button type="submit">Buscar Preços</button>
+                </form>
+                <div id="pricesSection" class="hidden">
+                    <textarea id="pricesLine" readonly></textarea>
+                    <button id="copyPrices">Copiar Preços</button>
+                </div>
+                            
+            </div>
+
+        
+            <div class="service">
                 <h3>Previsão de Preços</h3>
                 <form id="predictForm">
                     <label for="prices">Digite os Preços (separados por vírgulas):</label>
-                    <input type="text" id="prices" placeholder="e.g., 50000,51000,52000,53000" required>
+                    <input type="text" id="prices" placeholder="ex: 50000,51000,52000" required>
                     <button type="submit">Prever</button>
                 </form>
                 <p id="predictionResult"></p>
             </div>
-
-            <div>
-                <h3>Preços Históricos</h3>
-                <form id="historyForm">
-                    <label for="symbol">Símbolo do Ativo:</label>
-                    <input type="text" id="symbol" placeholder="BTC-USD" required>
-                    <label for="startDate">Data Inicial:</label>
-                    <input type="date" id="startDate" required>
-                    <label for="endDate">Data Final:</label>
-                    <input type="date" id="endDate" required>
-                    <button type="submit">Buscar Preços</button>
-                </form>
-                <table id="pricesTable">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Preço</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
         </section>
+        
 
         <section id="contato">
             <h2>Contato</h2>
-            <p>Entre em contato pelo email: <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+            <p>Entre em contato comigo pelo email se tem alguma sugestão, encontrou algum bug ou alguma melhoria: <a href="mailto:lucasknustcontato@outlook.com">lucasknustcontato@outlook.com</a></p>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Lucas Knust. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
